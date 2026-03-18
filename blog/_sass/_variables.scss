@@ -1,0 +1,81 @@
+// ============================================================
+// Color Palette — Cyberpunk Terminal
+// ============================================================
+
+$color-bg:          #0a0e1a;
+$color-surface:     #0f1629;
+$color-surface-2:   #162038;
+$color-border:      #1e3a5f;
+$color-border-glow: #2a5a9f;
+
+$color-text:        #c8d8f0;
+$color-text-muted:  #5a7a9a;
+$color-text-dim:    #3a5a7a;
+
+$color-cyan:        #00d4ff;
+$color-cyan-dim:    #0099bb;
+$color-green:       #00ff88;
+$color-green-dim:   #00bb66;
+$color-purple:      #a78bfa;
+$color-purple-dim:  #7c5fe6;
+$color-yellow:      #fbbf24;
+$color-red:         #f87171;
+
+$color-link:        $color-cyan;
+$color-link-hover:  $color-green;
+$color-accent:      $color-cyan;
+
+// ============================================================
+// Typography
+// ============================================================
+
+$font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+$font-body:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-size-base:   16px;
+$font-size-sm:     0.875rem;
+$font-size-lg:     1.125rem;
+$font-size-xl:     1.25rem;
+$font-size-2xl:    1.5rem;
+$font-size-3xl:    2rem;
+$font-size-4xl:    2.5rem;
+
+$line-height-body: 1.75;
+$line-height-heading: 1.2;
+
+// ============================================================
+// Layout
+// ============================================================
+
+$content-width:    800px;
+$wrapper-padding:  1.5rem;
+$header-height:    64px;
+
+// ============================================================
+// Spacing
+// ============================================================
+
+$spacing-xs:  0.25rem;
+$spacing-sm:  0.5rem;
+$spacing-md:  1rem;
+$spacing-lg:  1.5rem;
+$spacing-xl:  2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// ============================================================
+// Borders & Radius
+// ============================================================
+
+$border-width: 1px;
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// ============================================================
+// Transitions
+// ============================================================
+
+$transition-fast:   150ms ease;
+$transition-base:   250ms ease;
+$transition-slow:   400ms ease;

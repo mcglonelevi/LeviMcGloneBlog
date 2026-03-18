@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <div class="post-breadcrumb">
+      <a href="{{ "/" | relative_url }}">~</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>posts</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">{{ page.title | downcase | replace: ' ', '-' }}</span>
+    </div>
+
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    <div class="post-meta-bar">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        <span class="meta-label">date:</span>
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+      {%- if page.author -%}
+      <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="meta-label">author:</span>
+        <span itemprop="name">{{ page.author }}</span>
+      </span>
+      {%- endif -%}
+      {%- if page.categories.size > 0 -%}
+      <div class="post-categories">
+        <span class="meta-label">tags:</span>
+        {%- for cat in page.categories -%}
+        <span class="tag">{{ cat }}</span>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-nav">
+      {%- if page.previous.url -%}
+      <a class="post-nav-link post-nav-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="nav-arrow">&larr;</span>
+        <span class="nav-label">prev</span>
+        <span class="nav-title">{{ page.previous.title | escape }}</span>
+      </a>
+      {%- endif -%}
+      {%- if page.next.url -%}
+      <a class="post-nav-link post-nav-next" href="{{ page.next.url | relative_url }}">
+        <span class="nav-title">{{ page.next.title | escape }}</span>
+        <span class="nav-label">next</span>
+        <span class="nav-arrow">&rarr;</span>
+      </a>
+      {%- endif -%}
+    </div>
+  </footer>
+
+</article>

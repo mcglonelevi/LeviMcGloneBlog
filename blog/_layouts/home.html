@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="home-hero">
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="terminal-title">blog.sh</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="terminal-prompt">$</span> <span class="terminal-cmd">whoami</span></p>
+        <p class="terminal-output">{{ site.author | default: site.title }}</p>
+        <p><span class="terminal-prompt">$</span> <span class="terminal-cmd">cat description.txt</span></p>
+        <p class="terminal-output">{{ site.description }}</p>
+        <p><span class="terminal-prompt">$</span> <span class="terminal-cmd">ls posts/</span><span class="blink-cursor">&#9608;</span></p>
+      </div>
+    </div>
+  </div>
+
+  {%- if site.posts.size > 0 -%}
+  <div class="posts-section">
+    <h2 class="posts-heading">
+      <span class="heading-bracket">[</span>Latest Posts<span class="heading-bracket">]</span>
+    </h2>
+
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li class="post-card">
+        <div class="post-card-inner">
+          <div class="post-meta">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+              <span class="date-icon">&#9632;</span>
+              {{ post.date | date: "%Y-%m-%d" }}
+            </time>
+            {%- if post.categories.size > 0 -%}
+            <div class="post-tags">
+              {%- for cat in post.categories -%}
+              <span class="tag">{{ cat }}</span>
+              {%- endfor -%}
+            </div>
+            {%- endif -%}
+          </div>
+          <h3 class="post-title">
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h3>
+          {%- if site.show_excerpts -%}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          {%- endif -%}
+          <a class="read-more" href="{{ post.url | relative_url }}">read_more() <span class="arrow">&rarr;</span></a>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+
+  {{ content }}
+</div>

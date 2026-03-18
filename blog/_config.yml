@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Levi McGlone's Blog
+author: Levi McGlone
 email: mcglonelevi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Levi McGlone's blog about coding and tech
@@ -27,10 +28,14 @@ url: "blog.levimcglone.me" # the base hostname & protocol for your site, e.g. ht
 twitter_username: ""
 github_username: mcglonelevi
 
+# Show post excerpts on the home page
+show_excerpts: true
+
 # Build settings
-theme: minima
+# Custom theme — layouts/includes/sass are provided in the repo
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,0 +1,754 @@
+// ============================================================
+// Wrapper
+// ============================================================
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 $wrapper-padding;
+}
+
+// ============================================================
+// Site Header
+// ============================================================
+
+.site-header {
+  background: rgba($color-bg, 0.95);
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: $header-height;
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.site-title {
+  font-family: $font-mono;
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $color-text !important;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    .title-text {
+      color: $color-cyan;
+    }
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+  }
+
+  .prompt {
+    color: $color-green;
+    font-size: 1.1em;
+  }
+
+  .title-text {
+    color: $color-text;
+    transition: color $transition-base;
+  }
+
+  .cursor {
+    color: $color-cyan;
+    font-size: 0.9em;
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+  }
+}
+
+// ============================================================
+// Navigation
+// ============================================================
+
+.site-nav {
+  .nav-trigger {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+
+    svg path {
+      fill: $color-text-muted;
+    }
+
+    &:hover svg path {
+      fill: $color-cyan;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+
+  .nav-link {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    text-decoration: none;
+    padding: $spacing-xs $spacing-sm;
+    border: 1px solid transparent;
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+
+    &::before {
+      content: "./";
+      color: $color-text-dim;
+      transition: color $transition-fast;
+    }
+
+    &:hover, &.active {
+      color: $color-cyan;
+      border-color: $color-border;
+      background: $color-surface;
+      text-decoration: none;
+
+      &::before {
+        color: $color-green;
+      }
+    }
+
+    &.active {
+      color: $color-green;
+      border-color: rgba($color-green, 0.3);
+      background: rgba($color-green, 0.05);
+
+      &::before {
+        color: $color-green;
+      }
+    }
+  }
+}
+
+// Mobile nav
+@media screen and (max-width: 600px) {
+  .site-nav {
+    position: relative;
+
+    .menu-icon {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: calc(100% + #{$spacing-sm});
+      right: 0;
+      background: $color-surface;
+      border: 1px solid $color-border;
+      border-radius: $border-radius-md;
+      padding: $spacing-md;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+      min-width: 180px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-trigger:checked ~ .nav-links {
+      display: flex;
+    }
+  }
+}
+
+// ============================================================
+// Main Content
+// ============================================================
+
+.page-content {
+  padding: $spacing-2xl 0 $spacing-3xl;
+  min-height: calc(100vh - #{$header-height} - 80px);
+}
+
+// ============================================================
+// Home Page
+// ============================================================
+
+.home-hero {
+  margin-bottom: $spacing-3xl;
+}
+
+.hero-terminal {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba($color-cyan, 0.05), 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: box-shadow $transition-slow;
+
+  &:hover {
+    box-shadow: 0 0 80px rgba($color-cyan, 0.08), 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.terminal-bar {
+  background: $color-surface-2;
+  border-bottom: 1px solid $color-border;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &.dot-red    { background: $color-red; }
+  &.dot-yellow { background: $color-yellow; }
+  &.dot-green  { background: $color-green; }
+}
+
+.terminal-title {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.terminal-body {
+  padding: $spacing-lg $spacing-xl;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  line-height: 1.8;
+
+  p {
+    margin: 0;
+  }
+}
+
+.terminal-prompt {
+  color: $color-green;
+  margin-right: 0.5em;
+  user-select: none;
+}
+
+.terminal-cmd {
+  color: $color-cyan;
+}
+
+.terminal-output {
+  color: $color-text-muted;
+  padding-left: 1.5em;
+  margin-bottom: $spacing-sm !important;
+}
+
+.blink-cursor {
+  color: $color-cyan;
+  animation: blink 1s step-end infinite;
+  font-size: 0.85em;
+}
+
+// ============================================================
+// Posts Section
+// ============================================================
+
+.posts-section {
+  .posts-heading {
+    font-family: $font-mono;
+    font-size: $font-size-2xl;
+    color: $color-text-muted;
+    margin-bottom: $spacing-xl;
+    margin-top: 0;
+
+    .heading-bracket {
+      color: $color-border-glow;
+    }
+  }
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.post-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, $color-cyan, $color-purple);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover {
+    border-color: $color-border-glow;
+    transform: translateX(4px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), -4px 0 0 $color-cyan;
+
+    &::before {
+      opacity: 1;
+    }
+
+    .post-link {
+      color: $color-green;
+    }
+  }
+}
+
+.post-card-inner {
+  padding: $spacing-lg $spacing-xl;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.post-date {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  .date-icon {
+    color: $color-cyan;
+    font-size: 0.6em;
+  }
+}
+
+.post-tags {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $color-purple;
+  background: rgba($color-purple, 0.1);
+  border: 1px solid rgba($color-purple, 0.25);
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+}
+
+.post-title {
+  margin: 0 0 $spacing-sm;
+  font-size: $font-size-xl;
+
+  .post-link {
+    color: $color-text;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-cyan;
+      text-decoration: none;
+    }
+  }
+}
+
+.post-excerpt {
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-sm;
+  line-height: 1.6;
+}
+
+.read-more {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-cyan-dim;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  transition: all $transition-fast;
+
+  .arrow {
+    transition: transform $transition-fast;
+  }
+
+  &:hover {
+    color: $color-green;
+    text-decoration: none;
+
+    .arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ============================================================
+// Post Page
+// ============================================================
+
+.post-header {
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid $color-border;
+}
+
+.post-breadcrumb {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+  margin-bottom: $spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+
+  a {
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-cyan;
+      text-decoration: none;
+    }
+  }
+
+  .breadcrumb-sep {
+    color: $color-text-dim;
+  }
+
+  .breadcrumb-current {
+    color: $color-cyan;
+  }
+}
+
+.post-header .post-title {
+  font-size: clamp($font-size-2xl, 5vw, $font-size-4xl);
+  color: $color-text;
+  margin-bottom: $spacing-md;
+  line-height: 1.15;
+}
+
+.post-meta-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+
+  .meta-label {
+    color: $color-text-dim;
+    margin-right: 0.4em;
+  }
+
+  .post-date {
+    color: $color-text-muted;
+  }
+
+  .post-author {
+    color: $color-text-muted;
+  }
+
+  .post-categories {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+  }
+}
+
+// ============================================================
+// Post Content
+// ============================================================
+
+.post-content {
+  font-size: $font-size-lg;
+  line-height: 1.8;
+
+  h2 {
+    font-size: $font-size-2xl;
+    margin-top: $spacing-3xl;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $color-border;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-green;
+  }
+
+  h4 {
+    color: $color-purple;
+  }
+}
+
+// ============================================================
+// Post Footer / Navigation
+// ============================================================
+
+.post-footer {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $color-border;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.post-nav-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-decoration: none;
+  padding: $spacing-md $spacing-lg;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  transition: all $transition-fast;
+  max-width: 48%;
+
+  .nav-arrow {
+    color: $color-cyan;
+    font-size: 1.1em;
+  }
+
+  .nav-label {
+    color: $color-text-dim;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-title {
+    color: $color-text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    border-color: $color-border-glow;
+    background: $color-surface-2;
+    color: $color-cyan;
+    text-decoration: none;
+  }
+
+  &.post-nav-next {
+    margin-left: auto;
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+}
+
+// ============================================================
+// Page Layout
+// ============================================================
+
+.page-header {
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+
+  .page-title {
+    font-size: clamp($font-size-2xl, 4vw, $font-size-3xl);
+    color: $color-text;
+    margin: 0;
+  }
+}
+
+.page-content {
+  font-size: $font-size-lg;
+  line-height: 1.8;
+}
+
+// ============================================================
+// Site Footer
+// ============================================================
+
+.site-footer {
+  background: $color-surface;
+  border-top: 1px solid $color-border;
+  padding: $spacing-lg 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.footer-left {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  .footer-prompt {
+    color: $color-green;
+  }
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+
+  a {
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-cyan;
+      text-decoration: none;
+    }
+  }
+
+  .footer-built {
+    font-family: $font-mono;
+  }
+
+  .footer-icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: $color-text-dim;
+      transition: fill $transition-fast;
+    }
+
+    &:hover svg {
+      fill: $color-cyan;
+    }
+  }
+}
+
+// ============================================================
+// 404 Page
+// ============================================================
+
+.error-page {
+  text-align: center;
+  padding: $spacing-3xl 0;
+
+  .error-code {
+    font-family: $font-mono;
+    font-size: 8rem;
+    font-weight: 700;
+    color: $color-border;
+    line-height: 1;
+    margin-bottom: $spacing-md;
+  }
+
+  .error-msg {
+    font-family: $font-mono;
+    font-size: $font-size-xl;
+    color: $color-red;
+    margin-bottom: $spacing-xl;
+  }
+
+  .back-home {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $color-cyan;
+    border: 1px solid $color-cyan;
+    padding: $spacing-sm $spacing-xl;
+    border-radius: $border-radius-sm;
+    display: inline-block;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: rgba($color-cyan, 0.1);
+      text-decoration: none;
+    }
+  }
+}
+
+// ============================================================
+// Responsive
+// ============================================================
+
+@media screen and (max-width: 600px) {
+  .page-content {
+    padding: $spacing-xl 0 $spacing-2xl;
+  }
+
+  .home-hero {
+    margin-bottom: $spacing-xl;
+  }
+
+  .terminal-body {
+    padding: $spacing-md;
+    font-size: 0.8rem;
+  }
+
+  .post-card-inner {
+    padding: $spacing-md;
+  }
+
+  .post-header .post-title {
+    font-size: $font-size-2xl;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav-link {
+    max-width: 100%;
+
+    &.post-nav-next {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+}

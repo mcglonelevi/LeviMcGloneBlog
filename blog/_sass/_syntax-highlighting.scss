@@ -1,0 +1,77 @@
+// ============================================================
+// Syntax Highlighting — Rouge / Pygments
+// Dark terminal theme
+// ============================================================
+
+.highlight {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  margin: $spacing-xl 0;
+  overflow-x: auto;
+  position: relative;
+
+  pre {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    padding: $spacing-lg;
+    background: transparent;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  // Language label from fenced code block
+  &[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-md;
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-text-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: $color-surface-2;
+    padding: 2px 8px;
+    border-radius: $border-radius-sm;
+    border: 1px solid $color-border;
+  }
+
+  // Token Colors
+  .c,  .c1, .cm, .cs { color: #5a7a9a; font-style: italic; }     // Comments
+  .k,  .kd, .kn, .kr { color: $color-purple; font-weight: 600; }  // Keywords
+  .kt, .kc            { color: $color-cyan; }                       // Type keywords / constants
+  .s,  .s1, .s2, .sb,
+  .sc, .sd, .sh, .si,
+  .sx, .sr, .ss       { color: $color-yellow; }                     // Strings
+  .se                  { color: $color-red; }                        // String escape
+  .mi, .mf, .mo, .mh,
+  .il, .m              { color: #f97316; }                           // Numbers
+  .na, .nb             { color: $color-cyan; }                       // Name.Attribute, Name.Builtin
+  .nc                  { color: $color-green; font-weight: 600; }   // Class names
+  .nf, .nd             { color: $color-cyan; }                       // Function names, decorators
+  .ni                  { color: $color-purple; }                     // Name.Entity
+  .nl, .nn             { color: $color-text; }                       // Name.Label, Name.Namespace
+  .no, .nt             { color: $color-cyan; }                       // Name.Constant, Name.Tag
+  .nx                  { color: $color-text; }                       // Name.Other
+  .o,  .ow             { color: $color-purple; }                     // Operators
+  .p                   { color: $color-text-muted; }                 // Punctuation
+  .err                 { color: $color-red; }                        // Errors
+  .gd                  { color: $color-red; background: rgba($color-red, 0.1); }
+  .gi                  { color: $color-green; background: rgba($color-green, 0.1); }
+  .gh                  { color: $color-cyan; font-weight: 700; }
+  .gu                  { color: $color-purple; font-weight: 700; }
+  .ge                  { font-style: italic; }
+  .gs                  { font-weight: 700; }
+  .gr                  { color: $color-red; }
+  .go                  { color: $color-text-muted; }
+  .gp                  { color: $color-green; font-weight: 700; }    // Generic.Prompt
+  .gt                  { color: $color-red; }
+  .w                   { color: $color-text; }                       // Whitespace
+  .bp                  { color: $color-cyan; }                       // Name.Builtin.Pseudo
+  .vc, .vg, .vi        { color: $color-text; }                       // Variables
+  .nv                  { color: $color-text; }
+}

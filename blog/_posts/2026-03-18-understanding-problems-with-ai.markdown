@@ -4,7 +4,7 @@ title: "Understanding Problems with AI"
 date: 2026-03-18
 categories: ai
 ---
-In my last blog post, I talked about how a deep understanding of a problem is required to come up with a great solution. With that in mind, I'll discuss how I use AI to understand problems better in my day-to-day work.
+In my [last blog post]({% post_url 2026-03-18-solving-problems-with-ai-the-right-way %}), I talked about how a deep understanding of a problem is required to come up with a great solution. With that in mind, I'll discuss how I use AI to understand problems better in my day-to-day work.
 
 For reference purposes, I currently work at a company called Wistia where I build a web app for recording. In the process of building Wistia's Record product, I also occasionally work on other features like Wistia's online video editor and webinar solution. I recently went on parental leave for 4 months because I had a son. When I returned from leave, a really tricky problem about video animations was thrown my way. My boss watched me break down this gnarly problem, and he gave me this feedback:
 

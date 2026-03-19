@@ -1,22 +1,18 @@
 ---
 layout: post
-title: "Understanding Problems with AI"
+title: "Understanding Problems with AI Assistance"
 date: 2026-03-18
 categories: ai
 ---
 In my [last blog post]({% post_url 2026-03-18-solving-problems-with-ai-the-right-way %}), I talked about how a deep understanding of a problem is required to come up with a great solution. With that in mind, I'll discuss how I use AI to understand problems better in my day-to-day work.
 
-For reference purposes, I currently work at a company called Wistia where I build a web app for recording. In the process of building Wistia's Record product, I also occasionally work on other features like Wistia's online video editor and webinar solution. I recently went on parental leave for 4 months because I had a son. When I returned from leave, a really tricky problem about video animations was thrown my way. My boss watched me break down this gnarly problem, and he gave me this feedback:
-
-> Anytime you take on a feature, you do an excellent job thinking through how it should be built and then following through with strong execution. Your thoughtfulness and attention to detail always show in the work you deliver.
-
-When I tackle a complex feature like this, I usually start by understanding the ask. After that, I spike out what I think will be the hardest parts so that I run into any major issues sooner rather than later. The spike will inform a technical spec and the finalized implementation.
+For reference purposes, I currently work at a company called Wistia where I build a web app for recording. In the process of building Wistia's Record product, I also occasionally work on other features like Wistia's online video editor and webinar solution. I recently went on parental leave for 4 months because I had a son. When I returned from leave, a really tricky problem about video animations was thrown my way.  When I tackle a complex feature like this, I usually start by understanding the ask. After that, I spike out what I think will be the hardest parts so that I run into any major issues sooner rather than later. The spike will inform a technical spec and the finalized implementation.
 
 Understanding the ask is usually pretty straightforward and doesn't really involve much AI work at all. I have a conversation with my product manager and any relevant business partners. I usually ask questions that help me understand the requirements for the feature at hand. I also ask about any near-term improvements that we plan to make. These conversations guide my thinking about the problem and how I am going to solve it.
 
 Once I understand the ask, I usually build a spike for the parts of the feature that I think may be complicated or have difficult edge cases. Sniffing out complications is a skill I have developed over time as I have gained domain knowledge. Before I start writing any code myself or with an AI accomplice, I spend time reading any existing relevant code. In this particular case, I needed to add animations to our recording product to match what our live product shows when feeds are toggled or change position on the stage. I spent a lot of time reading the CSS code for the stage to understand the animation timings and properties that were changed. I also spent time reading code in the record product to understand what changed to our video rendering while I was out on leave.
 
-AI is really good at explaining code for the most part. If I encounter something that doesn't make sense to me, I usually highlight it and ask Claude to explain it. Claude is usually pretty good at explaining cryptic snippets of code.
+AI is really good at explaining code for the most part. The Claude Code VSCode extension is great for adhoc questions about the file you have open or specific snippets of code. If I encounter something that doesn't make sense to me, I usually ask Claude to explain it. Claude is usually pretty good at explaining cryptic snippets of code. If you doubt the explanation, copy-pasting into ChatGPT or changing the model can give a little more confidence.
 
 After I felt confident in my understanding of the pre-existing code, I asked myself "What is the ideal API for animating video feeds around the stage?". For any animation, you need a duration and the starting and ending values for properties that should be animated. I started fumbling my way through, and I eventually derived some type updates that I thought were good enough for the API I wanted. I wrote up a prompt that described the desired outcome and type updates, and I asked Claude to provide an implementation.
 
@@ -30,4 +26,8 @@ I took these learnings and documented them in my technical specification documen
 
 I am still currently working on this feature at the time of this writing; however, all of this prep work has made the implementation of production-level code easier. My estimate of the work required to ship this feature is more accurate due to the spike work. My team and project stakeholders are also aware of the limitations up front, and we're not scrambling to hit an unrealistic deadline.
 
-In the process of working on this feature, I gained a deep understanding of the problem which aided in solving it. The discovery process was made faster with AI tools like Claude. The spike may have taken me several days just a few years ago, but now it can be done in a few hours to a day for a moderately complex feature. This is where AI is actually useful and relevant in my daily work because some problems can't be discovered until you build something and test it.
+In the process of working on this feature, I gained a deep understanding of the problem which aided in solving it. I feel confident in my ability to ship improvements to what I am building, and I can debug it when it breaks because I understand it. The discovery process was made faster with AI tools like Claude. The spike may have taken me several days just a few years ago, but now it can be done in a few hours to a day for a moderately complex feature. Some problems can't be discovered until you build something and test it, and AI reduces the cost of gaining that knowledge. My boss watched me break down this gnarly problem, and he gave me this feedback:
+
+> Anytime you take on a feature, you do an excellent job thinking through how it should be built and then following through with strong execution. Your thoughtfulness and attention to detail always show in the work you deliver.
+
+If you're reading this and using AI tools to write code, my challenge to you is go beyond blind vibe coding. Dig in to the problems you're solving and how you're solving them so that you can improve and debug the things you build. In my next post, I'll be talking about strategies to avoid AI slop.

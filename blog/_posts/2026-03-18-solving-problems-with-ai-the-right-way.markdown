@@ -35,4 +35,4 @@ I think the companies that will survive the next decade will have the software t
 
 If you are in the business of building software, my challenge to you is to build the next git in whatever space you're competing. Build the software that people want to use because of how it solves the problem in a quality way where most people don't even think about switching to a competitor or building their own solution. Use AI to help you brainstorm the best way to solve the problem that still aligns with the business and customer needs.
 
-In my [next blog post]({% post_url 2026-03-18-understanding-problems-with-ai %}), I'll be talking about different ways of using AI to understand and solve problems.
+In my [next blog post]({% post_url 2026-03-18-understanding-problems-with-ai-assistance %}), I'll be talking about different ways of using AI to understand and solve problems.

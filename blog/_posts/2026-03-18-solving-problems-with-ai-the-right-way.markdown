@@ -4,7 +4,7 @@ title: "Solving Problems with AI the Right Way"
 date:  2026-03-18
 categories: ai
 ---
-There's a lot of buzz about AI and how it can make our lives as software engineers better, easier, and faster. Leadership at some companies are fantasizing about how non-technical employees will finally be able to code, and companies have already taken steps to reduce their headcount! It's really easy to buy into the hype train, but every benefit that AI brings also has a downside. Personally, I wonder how many great problem solvers were let go during these company downsizings in the name of profit and efficiency.
+There's a lot of buzz about AI and how it can make our lives as software engineers better, easier, and faster. Some leaders at some companies are fantasizing about how non-technical employees will finally be able to code, and companies have already taken steps to reduce their headcount! It's really easy to buy into the hype train, but every benefit that AI brings also has a downside. Personally, I wonder how many great problem solvers were let go during these company downsizings in the name of profit and efficiency.
 
 I have been a software engineer for the last 10 years or so. During my tenure at different companies, we would often have conversations about modelling solutions to problems. We had these conversations because _how_ you solve a problem _actually matters_. I'm going to use version control (VC) as an example.
 

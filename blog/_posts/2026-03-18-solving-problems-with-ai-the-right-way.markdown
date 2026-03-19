@@ -34,3 +34,5 @@ With most AI programs, it is so easy to just start typing and not really think a
 I think the companies that will survive the next decade will have the software that solves problems really well, and that software will be written by people who have a fantastic understanding of the problem that they are trying to solve. In order to withstand the test of time, the software has to be so well-architected that it can't be easily replicated by someone else with AI or that it solves the problem so well that there is no incentive to build an alternative.
 
 If you are in the business of building software, my challenge to you is to build the next git in whatever space you're competing. Build the software that people want to use because of how it solves the problem in a quality way where most people don't even think about switching to a competitor or building their own solution. Use AI to help you brainstorm the best way to solve the problem that still aligns with the business and customer needs.
+
+In my next blog post, I'll be talking about different ways of using AI to understand and solve problems.

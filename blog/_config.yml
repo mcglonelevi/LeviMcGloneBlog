@@ -23,8 +23,8 @@ author: Levi McGlone
 email: mcglonelevi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Levi McGlone's blog about coding and tech
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "blog.levimcglone.me" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/LeviMcGloneBlog" # the subpath of your site, e.g. /blog
+url: "https://mcglonelevi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
 github_username: mcglonelevi
 

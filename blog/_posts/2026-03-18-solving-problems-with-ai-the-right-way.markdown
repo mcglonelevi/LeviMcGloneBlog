@@ -33,7 +33,7 @@ When you have an unhealthy dependence on an AI agent, it is so easy to just star
 
 I think the companies that will survive the next decade will produce the best software that solves a specific problem really well. That software will be written by people who have a fantastic understanding of the problem that they are trying to solve. In order to withstand the test of time, the software has to be so well-architected that it can't be easily replicated or it has to solve the problem so well that there is no incentive to build an alternative.
 
-If you are in the business of building software, my challenge to you is to build the next git in whatever space you're competing. Get a deep understand of a problem and then build the software that people want to use. Build such a good solution so that most people don't even think about switching to a competitor or building their own solution. Use AI to accelerate your implementation of that solution.
+If you are in the business of building software, my challenge to you is to build the next git in whatever space you're competing. Get a deep understanding of a problem and then build the software that people want to use. Build such a good solution so that most people don't even think about switching to a competitor or building their own solution. Use AI to accelerate your implementation of that solution.
 
 If you're an executive who is contemplating reducing headcount at your company, you should think very carefully about who you let walk out the door and what knowledge they have. Those employees know what makes your company competitive and what your company's weaknesses are. Those who you let go may join a competitor and use AI to compete with your business.
 

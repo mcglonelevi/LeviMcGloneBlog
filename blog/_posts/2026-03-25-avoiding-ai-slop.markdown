@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Avoiding AI Slop"
-date: 2026-03-19
+date: 2026-03-25
 categories: ai
 ---
 I was in a skip-level meeting the other day with the director of my department. We were talking about AI and how using it can often lead to garbage code that is thrown away. Waiting for AI slop to generate wastes your time, and AI slop that gets merged can slow down your entire team with the cost of rewrites and making future additions more difficult. This got my brain spinning with questions like:
@@ -20,7 +20,7 @@ I have also generated less-terrible slop over the course of my career. At many p
 
 Slop is a sign that you're trying to solve a problem in the wrong way. It doesn't matter if the slop is from a person or from a machine. Bad code is bad code. A bad solution is a bad solution.
 
-One of the challenges of recognizing AI slop is that it can often appear like good code. These models can pump out thousands of lines of code in a short amount of time. The code can be readable and well-formatted, but AI models often write entirely new functions when there is an identical function elsewhere in the codebase or in a library you already have. In other cases, the AI agent might import an entirely new library to solve a small problem when it's not needed. Catching issues like these can be tricky during a code review.
+One of the challenges of recognizing AI slop is that it can often appear like good code. These models can pump out thousands of lines of code in a short amount of time. The code can be readable and well-formatted, but AI models often write entirely new functions when there is an identical function elsewhere in the codebase or in a library you already have. In other cases, the AI agent might import an entirely new library to solve a small problem when it's not needed. Catching issues like these can be tricky during a code review. I've also seen humans make these same mistakes over my career.
 
 Your responsibilities to avoid slop include:
 
@@ -35,7 +35,7 @@ I was reviewing an AI-generated PR the other day from my boss. At a high level, 
 
 After some thought, I realized that we needed to go beyond adding a new feature. Instead, we needed to refactor the existing code to be better so that we could cleanly support hotkeys. If we did not do this refactor, the maintainability of hotkey logic was only going to get worse over time as we added hotkeys for other features. This was a recipe for tech debt soup cooked over the heat from Anthropic's datacenters.
 
-On a different feature, I had solved a similar problem with CustomEvents. It didn't matter if the event trigger was a button, a Chrome extension, or a hotkey. A listener watched for those events and did the right thing based on the state of the app. Using events would allow us to centralize the logic for starting and stopping recording in one place. Throttling logic could be implemented in the centralized logic, so this implementation would prevent double-trigger issues such as pressing the button and hotkey at the same time. I talked with my boss about it, and I used Claude to create a branch that implemented the event listener approach. After a few rounds of back and forth with Claude, I updated the buttons to dispatch events, and I used an existing React hook for the hotkey functionality to dispatch the same event on keypress. It was a much cleaner solution, easier to maintain, and much less error-prone.
+On a different feature, I had solved a similar problem with CustomEvents. It didn't matter if the event trigger was a button, a Chrome extension, or a hotkey. A listener watched for those events and did the right thing based on the state of the app. Using events would allow us to decouple our UI elements from the logic and centralize the logic for starting and stopping recording in one place. Throttling logic could be implemented in the centralized logic, so this implementation would prevent double-trigger issues such as pressing the button and hotkey at the same time. I talked with my boss about it, and I used Claude to create a branch that implemented the event listener approach. After a few rounds of back and forth with Claude, I updated the buttons to dispatch events, and I used an existing React hook for the hotkey functionality to dispatch the same event on keypress. It was a much cleaner solution, easier to maintain, and much less error-prone.
 
 In both cases, the AI agent did exactly what it was asked, but one solution was much better than the other. The difference in output was due to the breakdown of the problem and the solution that was proposed. Agents will likely produce slop if you are not prescriptive and detailed in your prompt about the qualities of a good solution. If you are not specific enough, the agent will try to come up with a solution on its own (likely slop). If you propose a poor solution to begin with, you're definitely going to get some expensive AI word vomit.
 
@@ -49,7 +49,7 @@ One strategy I have found particularly effective for modifying existing code is 
 
 > I have two different React context providers that handle user uploads: HighFreqContext and LowFreqContext. HighFreqContext receives progress updates frequently and rapidly updates certain UI elements. Because of performance issues, HighFreqContext is located much lower in the component tree to avoid rapidly rerendering large portions of the app. LowFreqContext receives updates much less frequently and is mounted much higher in the component tree. Can you refactor the code to combine the two providers using xstate/store so that we can use selectors to subscribe to the updates we care about without having a complicated provider setup? Please help me plan this refactor.
 
-My prompt was intentionally very specific. I explained the architecture of the upload contexts and why they were separated. I told the agent what library I wanted to use to avoid a one-off solution. I also explained why xstate was beneficial to solving the problem. Superpowers asked several clarifying questions after my initial prompt which helped with setting the context for a good solution, and it also looked at other usages of xstate/store to match existing patterns. The resulting code was really good. I probably could have implemented it myself, but it would have taken 2-3x as long. My team was also happy with the code quality and we ended up shipping it.
+My prompt was intentionally very specific. I explained the architecture of the upload contexts and why they were separated. I told the agent what library I wanted to use to avoid a one-off solution. I also explained why xstate was beneficial to solving the problem. Superpowers asked several clarifying questions after my initial prompt which helped with setting the context for a good solution, and it also looked at other usages of xstate/store to match existing patterns. The resulting code was really good. I probably could have implemented it myself, but it would have taken 2-3x as long. My team was mostly happy with the code quality and we ended up shipping it.
 
 ## Conclusion
 
@@ -57,4 +57,4 @@ If you're trying to ship production-grade code with AI, I challenge you to play 
 
 When you are reviewing code that is generated by an AI agent, the architect role still applies. Carefully inspect the structure of the code and consider if there is a better implementation. If you're in doubt about the code quality, you can always brainstorm with an AI agent by asking questions like "Can you recommend a few approaches for how you would solve &lt;insert problem statement&gt;".
 
-If you apply these techniques in your daily work, I think your project will have better long-term success. Your AI agent is only as good as the architect behind it.
+If you apply these techniques in your daily work, I think your project will have better long-term success. In the short-term, you're also much less likely to ship slop code. Your AI agent is only as good as the architect behind it.

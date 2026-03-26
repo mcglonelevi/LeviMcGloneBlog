@@ -36,5 +36,3 @@ I think the companies that will survive the next decade will produce the best so
 If you are in the business of building software, my challenge to you is to build the next git in whatever space you're competing. Get a deep understanding of a problem and then build the software that people want to use. Build such a good solution so that most people don't even think about switching to a competitor or building their own solution. Use AI to accelerate your implementation of that solution.
 
 If you're an executive who is contemplating reducing headcount at your company, you should think very carefully about who you let walk out the door and what knowledge they have. Those employees know what makes your company competitive and what your company's weaknesses are. Those who you let go may join a competitor and use AI to compete with your business.
-
-In my next blog post, I'll be talking about different ways of using AI to understand and solve problems.

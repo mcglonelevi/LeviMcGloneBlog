@@ -3,6 +3,7 @@ layout: post
 title: "Avoiding AI Slop"
 date: 2026-03-25
 categories: ai
+description: "AI-generated code is only as good as the architect behind the prompt. How to get quality output and spot slop before it ships."
 ---
 I was in a skip-level meeting the other day with an engineering leader. We were talking about AI and how using it can often lead to garbage code that is thrown away. Waiting for AI slop to generate wastes your time, and AI slop that gets merged can slow down your entire team with the cost of rewrites and making future additions more difficult. This got my brain spinning with questions like:
 

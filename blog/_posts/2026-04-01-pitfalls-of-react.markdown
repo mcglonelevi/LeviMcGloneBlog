@@ -3,6 +3,7 @@ layout: post
 title: "Pitfalls of React"
 date: 2026-04-01
 categories: react
+description: "React's flexibility is a double-edged sword. The same mistakes keep appearing across codebases — here's how to avoid them."
 ---
 Over my career, I have worked in several React codebases ranging from mature codebases of over a million lines of code to very small codebases that were less than 50k lines. In all of these codebases, I have seen the same mistakes repeated over and over and over again. Different companies. Different people. Same mistakes.
 

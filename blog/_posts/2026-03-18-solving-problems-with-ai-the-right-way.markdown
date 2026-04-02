@@ -3,6 +3,7 @@ layout: post
 title: "Solving Problems with AI the Right Way"
 date:  2026-03-18
 categories: ai
+description: "AI can write code fast, but great software still requires deep problem understanding. A case for thinking before you prompt."
 ---
 There's a lot of buzz about AI and how it can make our lives as software engineers better, easier, and faster. Some executives leaders are fantasizing about how non-technical employees will finally be able to code, and some of those leaders have already taken steps to reduce headcount at their company! It's really easy to buy into the hype train, but it's important to remember why we write software -- to solve problems. I wonder how many good problem-solvers have been let go in the name of efficiency and profit.
 

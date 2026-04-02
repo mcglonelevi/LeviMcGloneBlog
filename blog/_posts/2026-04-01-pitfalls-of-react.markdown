@@ -4,10 +4,13 @@ title: "Pitfalls of React"
 date: 2026-04-01
 categories: react
 description: "React's flexibility is a double-edged sword. The same mistakes keep appearing across codebases — here's how to avoid them."
+image: /assets/images/2026-04-01.png
 ---
 Over my career, I have worked in several React codebases ranging from mature codebases of over a million lines of code to very small codebases that were less than 50k lines. In all of these codebases, I have seen the same mistakes repeated over and over and over again. Different companies. Different people. Same mistakes.
 
 Why is this? Why do React codebases often go off the rails in the same ways?
+
+## The Pathway of Complexity
 
 React makes it very easy for a beginner to get started. React's JSX syntax is nice syntactic sugar. The developer of the code doesn't have to think much about the event listeners that are created to handle DOM events. The mental model is pretty simple: `props + state = html`. Software devs can go about their day with nice functional components. When you're starting out, you don't have to think much about React's inner workings.
 
@@ -35,6 +38,8 @@ Practically speaking, I've seen these problems result from bad React code:
 2. Tests, if there are any, are probably not comprehensive and likely flaky.
 3. Developers are unhappy writing React code.
 4. Users are unhappy with a buggy experience.
+
+## When to useReact()
 
 If you choose to use React, figure out how things like networking, state management, and business logic are going to work ***early on***. Take the time to establish good patterns for networking and state management. If wading through the sea of React libraries doesn't sound fun, there are alternatives to React. Blazor, HTMX, and Rails Hotwire are all reasonable starting points. Going old-school HTML and Javascript is also an option. Pick a technology that you can use productively and stick with it.
 

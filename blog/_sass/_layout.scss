@@ -485,6 +485,23 @@
 }
 
 // ============================================================
+// Post Hero Image
+// ============================================================
+
+.post-hero-image {
+  margin-bottom: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  border: 1px solid $color-border;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// ============================================================
 // Post Content
 // ============================================================
 

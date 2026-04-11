@@ -16,9 +16,11 @@ Today, VC is taken for granted, and most people probably see it as a "solved pro
 
 Once a repo gets large with a lot of commit history, git starts to break. Facebook and Google invented their own proprietary VC systems to solve their specific needs. The way they solved VC had specific design constraints and scale in mind at the beginning of the project. I've never worked at Facebook or Google, so I have no idea how they solved the problem, but they ship a lot of code every day which is a sign of success.
 
+**NOTE: A reader let me know that git was never used at Google as a primary VC system. According to different articles, it looks like Google used Perforce before writing Piper. It looks like Google used git and SVN on some smaller internal projects and for mirroring. Google used Perforce instead of SVN early on due to Perforce's ability to handle larger projects.**
+
 What would have happened if Facebook or Google did not design their VC solutions with the end goal in mind? One does not simply wake up one day and say "I am going to build my own version control system". There's probably a story like this:
 
-> We were using git. Git started running really slowly, and we started wondering why. The problem got so bad that nobody could work. We realized that git could no longer handle the size of our codebase, so we looked into making git faster. We found it would take nearly a complete rewrite to serve our needs, so we also looked at alternative programs. Our testing showed that these alternate programs couldn't support our needs either, so now we need to build our own software.
+> We were using &lt;insert VC tool&gt;. Cloning and committing started to get really slow, and we started wondering why. The problem got so bad that nobody could work. We realized that our VC could no longer handle the size of our codebase, so we looked into making it faster. We found it would take nearly a complete rewrite to serve our needs, so we also looked at alternative programs. Our testing showed that these alternate programs couldn't support our needs either, so now we need to build our own software.
 > 
 > \- Hypothetical software engineer
 

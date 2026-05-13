@@ -14,5 +14,17 @@
     </main>
 
     {%- include footer.html -%}
+    <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-tsx.min.js"></script>
+    <script>
+      Prism.highlightAll();
+      document.querySelectorAll('pre[class*="language-"]').forEach(pre => {
+        const langClass = Array.from(pre.classList).find(c => c.startsWith('language-'));
+        if (langClass) pre.setAttribute('data-lang', langClass.replace('language-', ''));
+      });
+    </script>
   </body>
 </html>

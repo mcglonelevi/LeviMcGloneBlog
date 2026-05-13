@@ -351,16 +351,16 @@
   display: flex;
   gap: $spacing-xs;
   flex-wrap: wrap;
-}
 
-.tag {
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  color: $color-purple;
-  background: rgba($color-purple, 0.1);
-  border: 1px solid rgba($color-purple, 0.25);
-  padding: 0.1em 0.5em;
-  border-radius: 3px;
+  .tag {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-purple;
+    background: rgba($color-purple, 0.1);
+    border: 1px solid rgba($color-purple, 0.25);
+    padding: 0.1em 0.5em;
+    border-radius: 3px;
+  }
 }
 
 .post-title {

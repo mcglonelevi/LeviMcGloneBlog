@@ -25,6 +25,17 @@ $color-link:        $color-cyan;
 $color-link-hover:  $color-green;
 $color-accent:      $color-cyan;
 
+:root {
+  --color-bg:          #{$color-bg};
+  --color-surface:     #{$color-surface};
+  --color-surface-2:   #{$color-surface-2};
+  --color-border:      #{$color-border};
+  --color-border-glow: #{$color-border-glow};
+  --color-text:        #{$color-text};
+  --color-cyan:        #{$color-cyan};
+  --color-cyan-dim:    #{$color-cyan-dim};
+}
+
 // ============================================================
 // Typography
 // ============================================================

@@ -7,3 +7,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {%- feed_meta -%}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  const css = getComputedStyle(document.documentElement);
+  const v = (name) => css.getPropertyValue(name).trim();
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      actorBkg:            v('--color-surface'),
+      actorBorder:         v('--color-border-glow'),
+      actorTextColor:      v('--color-text'),
+      actorLineColor:      v('--color-border'),
+      signalColor:         v('--color-text'),
+      signalTextColor:     v('--color-text'),
+      labelBoxBkgColor:    v('--color-surface'),
+      labelBoxBorderColor: v('--color-text'),
+      labelTextColor:      v('--color-text'),
+      loopTextColor:       v('--color-text'),
+      noteBkgColor:        v('--color-surface-2'),
+      noteTextColor:       v('--color-text'),
+      noteBorderColor:     v('--color-text'),
+      activationBorderColor: v('--color-cyan'),
+      activationBkgColor:  v('--color-surface-2'),
+    }
+  });
+</script>

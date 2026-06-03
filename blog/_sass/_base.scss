@@ -109,6 +109,15 @@ ol {
       font-family: $font-mono;
       font-size: $font-size-sm;
     }
+
+    ul li {
+      counter-increment: none;
+      padding-left: 0;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 }
 
